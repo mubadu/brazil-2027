@@ -1,0 +1,236 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Brazil 2027 · Pick your trip</title>
+<meta name="description" content="Two ways to do Tomorrowland Brasil 2027: 13 nights with the Amazon or 11 nights of city and coast. Take the quiz, check the days, submit your pick.">
+<meta property="og:title" content="Brazil 2027 · Pick your trip">
+<meta property="og:description" content="Tomorrowland Brasil plus the Amazon, or more city time. Take the quiz, check the days, submit your pick.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://mubadu.github.io/brazil-2027/">
+<meta property="og:image" content="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Rio-panorama-Botafogo-Sugarloaf.jpg/1920px-Rio-panorama-Botafogo-Sugarloaf.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1C1513">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇧🇷</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'OSO';src:url(https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one/files/open-sauce-one-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'OSO';src:url(https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one/files/open-sauce-one-latin-700-normal.woff2) format('woff2');font-weight:700;font-display:swap}
+:root{--bg:#FDF7DC;--card:#FFFFFF;--ink:#2B2320;--muted:#6E5A52;--coral:#E2624A;--deep:#B8432C;--line:#E2624A33;--chip:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1C1513;--card:#2A201D;--ink:#F6EBDD;--muted:#C2AFA4;--coral:#F07A60;--deep:#F59A82;--line:#F07A6040;--chip:#2A201D}}
+:root[data-theme="dark"]{--bg:#1C1513;--card:#2A201D;--ink:#F6EBDD;--muted:#C2AFA4;--coral:#F07A60;--deep:#F59A82;--line:#F07A6040;--chip:#2A201D}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*:before,*:after{box-sizing:inherit;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'OSO',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.T{font-family:'Bodoni Moda',Didot,'Bodoni 72',Georgia,serif;font-weight:600}
+img{max-width:100%;display:block}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;background:#000 center/cover no-repeat;color:#FFF9E3}
+.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,5,.15) 0%,rgba(20,10,5,.75) 100%)}
+.hero .in{position:relative;z-index:1;padding:40px 22px 56px;max-width:980px;margin:0 auto;width:100%}
+.hero h1{font-size:clamp(64px,16vw,150px);letter-spacing:.06em;line-height:.95}
+.hero .k{font-weight:700;letter-spacing:.25em;font-size:13px;opacity:.9;margin-bottom:12px}
+.hero p{font-size:clamp(18px,4.6vw,24px);max-width:560px;margin:14px 0 26px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:700 16px 'OSO',sans-serif;padding:14px 22px;border-radius:999px;background:var(--coral);color:#fff;text-decoration:none}
+.btn.ghost{background:transparent;border:2px solid currentColor;color:inherit}
+section{padding:56px 0}
+h2{font-size:clamp(34px,8vw,54px);color:var(--coral);line-height:1.05;margin-bottom:10px}
+.lead{color:var(--muted);font-size:18px;max-width:640px;margin-bottom:26px}
+/* quiz */
+.quiz{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:22px}
+.q{margin-bottom:22px}.q h3{font-size:18px;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{border:2px solid var(--line);background:var(--chip);color:var(--ink);border-radius:999px;padding:10px 16px;font:600 15px 'OSO',sans-serif;cursor:pointer}
+.opt.on{background:var(--coral);border-color:var(--coral);color:#fff}
+.result{display:none;margin-top:6px;padding:18px 20px;border-radius:20px;background:var(--coral);color:#fff}
+.result.show{display:block}.result b{font-size:20px}
+/* plan cards */
+.plans{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:760px){.plans{grid-template-columns:1fr 1fr}}
+.plan{background:var(--card);border:2px solid var(--line);border-radius:28px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.plan.glow{border-color:var(--coral);box-shadow:0 12px 34px #E2624A40;transform:translateY(-3px)}
+.plan .ph{height:220px;background:center/cover no-repeat;position:relative}
+.badge{position:absolute;top:14px;left:14px;background:var(--coral);color:#fff;font-weight:700;font-size:12px;letter-spacing:.18em;padding:7px 12px;border-radius:999px}
+.badge.alt{background:#6E5A52}
+.plan .bd{padding:20px 22px 24px}
+.plan h3{font-size:34px;color:var(--deep);line-height:1.05}
+.route{font-weight:700;font-size:12px;letter-spacing:.16em;color:var(--coral);margin:8px 0 14px}
+.plan ul{list-style:none}.plan li{position:relative;padding-left:20px;margin-bottom:8px}
+.plan li:before{content:'';position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:var(--coral)}
+.plan .act{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.why{margin-top:20px;background:var(--coral);color:#fff;border-radius:24px;padding:20px 22px}
+.why h3{font-size:28px;margin-bottom:8px}.why li{margin:6px 0 6px 18px}
+/* compare */
+.cmp{width:100%;border-collapse:collapse;font-size:15px}
+.cmpw{overflow-x:auto;background:var(--card);border-radius:22px;border:2px solid var(--line)}
+.cmp th,.cmp td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.cmp th{font-family:'Bodoni Moda',Georgia,serif;color:var(--coral);font-size:20px}
+.cmp td:first-child{font-weight:700;white-space:nowrap}
+.cmp tr.f td{background:var(--coral);color:#fff}
+/* tabs + days */
+.tabs{display:flex;gap:8px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:12px 0}
+.tab{flex:1;border:2px solid var(--coral);background:transparent;color:var(--coral);border-radius:999px;padding:12px;font:700 15px 'OSO',sans-serif;cursor:pointer}
+.tab.on{background:var(--coral);color:#fff}
+.days{display:grid;gap:22px;margin-top:10px}
+.day{background:var(--card);border-radius:26px;overflow:hidden;border:2px solid var(--line)}
+.day .ph{position:relative;aspect-ratio:16/10;background:center/cover no-repeat}
+.day .tag{position:absolute;top:12px;left:12px;background:var(--bg);color:var(--deep);font-weight:700;font-size:11px;letter-spacing:.16em;padding:6px 11px;border-radius:999px}
+.thumbs{display:grid;gap:6px;padding:6px}.thumbs img{width:100%;height:90px;object-fit:cover;border-radius:12px}
+.day .bd{padding:6px 20px 22px}
+.meta{display:flex;justify-content:space-between;font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--coral);margin-top:6px}
+.day h4{font-size:44px;color:var(--coral);line-height:1;margin:8px 0 4px}
+.hook{font-family:'Bodoni Moda',Georgia,serif;font-style:italic;font-size:22px;color:var(--deep);margin-bottom:12px;line-height:1.3}
+.ln{margin-bottom:8px;font-size:16px}.ln b:first-child{color:var(--coral)}
+.best{margin-top:12px;border-left:5px solid var(--coral);background:var(--bg);padding:10px 14px;border-radius:0 14px 14px 0}
+.best span{display:block;font-weight:700;font-size:11px;letter-spacing:.16em;color:var(--coral)}
+.tonight{margin-top:12px;font-size:13px;color:var(--muted)}
+/* pick */
+.pick{background:var(--card);border:2px solid var(--coral);border-radius:28px;padding:22px}
+.pick input{width:100%;font:16px 'OSO',sans-serif;padding:12px 14px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);margin:10px 0 14px}
+.picks{display:flex;gap:10px;flex-wrap:wrap}
+.msg{display:none;margin-top:16px;background:var(--bg);border-radius:18px;padding:16px}
+.msg.show{display:block}.msg p{font-size:17px;margin-bottom:12px}
+.small{font-size:13px;color:var(--muted)}
+main{padding-bottom:40px}
+.pick label{font-weight:700;font-size:14px}
+.pq{font-size:16px;margin:0 0 8px}
+.btn.ghost[data-pick]{color:var(--coral)}
+.picks.nudge{animation:nudge .6s 2}
+@keyframes nudge{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.subw{margin-top:22px}
+.btn.big{width:100%;justify-content:center;font-size:18px;padding:16px 22px}
+.btn:disabled{opacity:.7;cursor:wait}
+#subst{margin-top:10px;font-size:15px;color:var(--ink)}
+.result a{color:#fff}
+</style></head><body>
+<header class="hero" style="background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Rio-panorama-Botafogo-Sugarloaf.jpg/1920px-Rio-panorama-Botafogo-Sugarloaf.jpg')"><div class="in">
+<div class="k">BRAZIL · 26 APRIL – 9 MAY 2027</div><h1 class="T">BRAZIL</h1>
+<p>Tomorrowland Brasil, plus either the Amazon or more city time. Two trips, one festival. Take the quiz or scroll the days, then make your pick.</p>
+<a class="btn" href="#quiz">Find your trip ↓</a> <a class="btn ghost" href="#plans" style="margin-left:6px">See both</a></div></header>
+<main class="wrap">
+<section id="quiz"><h2 class="T">Which trip are you?</h2><p class="lead">Four taps. No wrong answers.</p>
+<div class="quiz" id="qz"></div><div class="result" id="res"></div></section>
+<section id="plans"><h2 class="T">Two trips</h2><p class="lead">Same three days of Tomorrowland in both. The difference is what wraps around it.</p>
+<div class="plans">
+<div class="plan" id="c13"><div class="ph" id="ph13"><span class="badge">OUR PICK</span></div><div class="bd"><h3 class="T">The Full Brazil</h3><div class="route">13 NIGHTS · RIO › FESTIVAL › AMAZON › SÃO PAULO</div>
+<ul><li>Rio first, while you're fresh: Christ the Redeemer, Sugarloaf, Dois Irmãos</li><li>Tomorrowland, three days</li><li><b>Three days in the Amazon</b>: flooded-forest canoes, pink dolphins, a night in jungle hammocks</li><li>São Paulo nights out on <b>Friday + Saturday</b></li></ul>
+<div class="act"><button class="btn" data-show="p13">See the 13 days</button></div></div></div>
+<div class="plan" id="c11"><div class="ph" id="ph11"><span class="badge alt">ALSO GREAT</span></div><div class="bd"><h3 class="T">City & Coast</h3><div class="route">11 NIGHTS · SÃO PAULO › FESTIVAL › RIO › SÃO PAULO</div>
+<ul><li>São Paulo first: MASP, Museu do Futebol, Ibirapuera</li><li>Tomorrowland, three days</li><li>Rio after the festival, plus Monday samba at Pedra do Sal</li><li>São Paulo nights out on <b>Thursday + Friday</b></li><li>Two nights shorter</li></ul>
+<div class="act"><button class="btn" data-show="p11">See the 11 days</button></div></div></div></div>
+<div class="why"><h3 class="T">Why we'd go 13</h3><ul><li>The Amazon is the one thing here that's hard to come back for.</li><li>Nights out land on Friday + Saturday.</li><li>The jungle is the reset between the festival and the big nights.</li><li>Rio first means a short hop into the festival, with two clear days to spare.</li></ul></div></section>
+<section id="compare"><h2 class="T">Side by side</h2><div class="cmpw"><table class="cmp" id="cmp"></table></div></section>
+<section id="days"><h2 class="T">Day by day</h2>
+<div class="tabs"><button class="tab on" data-p="p13">13 nights · Full Brazil</button><button class="tab" data-p="p11">11 nights · City & Coast</button></div>
+<div class="days" id="dl"></div></section>
+<section id="amazon"><h2 class="T">The Amazon in late April</h2>
+<div class="day"><div class="ph" id="amzph"><span class="tag">JUNGLE · 13 NIGHTS ONLY</span></div><div class="bd" style="padding-top:16px">
+<p class="ln"><b>High water:</b> the river floods into the forest, so instead of long hikes you canoe <i>through</i> the trees, at canopy level.</p>
+<p class="ln"><b>Wildlife:</b> flood season is the best time to see monkeys and sloths at eye level from the canoe. Pink river dolphins live here.</p>
+<p class="ln"><b>Rain + bugs:</b> it's the wet season, so bring a rain jacket, a dry bag and repellent. Short jungle walks still run on higher ground.</p></div></div></section>
+<section id="pick"><h2 class="T">Make your pick</h2><p class="lead">Add your name, tap your pick, then hit Submit. You can send it to the group chat too.</p>
+<div class="pick"><label for="nm">Your name</label><input id="nm" placeholder="Your name" autocomplete="given-name" maxlength="40">
+<h3 class="pq">Which trip are you in for?</h3><div class="picks" id="picks"><button class="btn ghost" data-pick="13" aria-pressed="false">I'm in for 13 nights</button><button class="btn ghost" data-pick="11" aria-pressed="false">I'm in for 11 nights</button><button class="btn ghost" data-pick="either" aria-pressed="false">Either works</button></div>
+<div class="subw"><button class="btn big" id="sub">Submit my pick</button><p class="small" id="subst" role="status" aria-live="polite"></p></div>
+<div class="msg" id="msg"><p id="mtxt"></p><div class="picks"><button class="btn" id="cp">Copy message</button><a class="btn ghost" id="wa" target="_blank" rel="noopener" style="color:var(--coral)">WhatsApp</a><a class="btn ghost" id="sms" style="color:var(--coral)">Text</a></div><p class="small" id="cpok" style="margin-top:8px" role="status"></p></div></div></section>
+<section id="results" hidden><h2 class="T">Results</h2><p class="lead">Only you (the owner) can see this board. Picks saved from this page show up here live.</p>
+<div class="cmpw"><table class="cmp" id="rtab"><tr><th>Name</th><th>Pick</th><th>Quiz said</th><th>When</th></tr></table></div><p class="small" id="rnone" style="margin-top:10px">No picks saved yet.</p></section>
+</main>
+<script>
+const D={"p13":[{"n":1,"wd":"Monday","place":"Arrive in Rio","date":"26 April","tag":"TRAVEL","hero":"copacabana_2","th":["ipanema_1","lapa_arches_3"],"hook":"Land in Rio and walk straight onto the beachfront.","lines":[["Evening","Land at Galeão and head to Ipanema or Copacabana."],["Night","Dinner by the beach and an early sleep. Anyone with energy left: Pedra do Sal's free open-air Monday samba starts around 7pm."]],"best":"The first walk along the Copacabana promenade.","tonight":"Ipanema / Copacabana"},{"n":2,"wd":"Tuesday","place":"Rio de Janeiro","date":"27 April","tag":"CITY","hero":"christ_2","th":["corcovado_train_0","santa_teresa_3","selaron_0","sugarloaf_cable_2"],"hook":"Christ the Redeemer above the clouds, Sugarloaf at sunset.","lines":[["Morning","First train up Corcovado to <b>Christ the Redeemer</b>, the whole city and bay below."],["Afternoon","The yellow <b>Santa Teresa tram</b>, then down the tiled <b>Selarón steps</b>. Cool off at Ipanema."],["Evening","<b>Sugarloaf</b> cable car, timed for sunset over Guanabara Bay."],["Night","Early night. Tomorrow starts at sunrise."]],"best":"Watching Rio light up from the top of Sugarloaf.","tonight":"Ipanema / Copacabana"},{"n":3,"wd":"Wednesday","place":"Rio de Janeiro","date":"28 April","tag":"BEACH","hero":"dois_irmaos_view_0","th":["arpoador_2","ipanema_1","maracana_4"],"hook":"The view every Rio postcard is taken from.","lines":[["Morning","Guided sunrise hike up <b>Dois Irmãos</b> from Vidigal. Ipanema laid out below."],["Afternoon","Beach time, or a game at <b>Maracanã</b> if there's one on."],["Evening","<b>Arpoador</b> rock for sunset, Rio's classic sunset spot after a beach day."],["Night","Last night in Rio. Pack: festival town tomorrow."]],"best":"The summit of Dois Irmãos at sunrise.","tonight":"Ipanema / Copacabana"},{"n":4,"wd":"Thursday","place":"Rio → Itu","date":"29 April","tag":"TRAVEL","hero":"itu_4","th":["azul_plane_3","viracopos_2","itu_1"],"hook":"A short hop to festival town.","lines":[["Morning","Short flight from Rio (Galeão) to Campinas, the airport next to Itu."],["Afternoon","Check in to the festival base and stock up: water, electrolytes, sunscreen."],["Evening","Wander Itu's old centre and the lit-up church square."],["Night","Early night. The gates open at 1pm tomorrow."]],"best":"The calm before three festival days.","tonight":"Itu"},{"n":null,"wd":"Fri – Sun","place":"Itu · both trips","date":"30 Apr – 2 May","tag":"FESTIVAL","hero":"fest3_1","th":["fest3_0"],"hook":"Three days, six stages, 150+ artists. The reason we're going.","lines":[["Hours","Friday and Saturday 1pm–1am, Sunday 1pm–midnight, at Parque Maeda in Itu."],["Days","Sleep in, big brunch, through the gates early afternoon, and stay to the last set."],["Crew rules","Pick a meeting point in case phones die. Walk away from the gates before booking the Uber home."]],"best":"The Mainstage on closing night.","tonight":"Itu"},{"n":8,"wd":"Monday","place":"Itu → Manaus","date":"3 May","tag":"TRAVEL","hero":"teatro_amazonas_0","th":["enc_5","enc_3"],"hook":"From festival lights to a city in the middle of the rainforest.","lines":[["Midday","Fly Campinas → Manaus, about 3 hours 45."],["Afternoon","Manaus runs an hour behind São Paulo. Wind down after the festival."],["Evening","<b>Teatro Amazonas</b>, the rubber-boom opera house in the jungle, World Heritage since 2026. Lit up at night."],["Night","Hotel in Manaus."]],"best":"Teatro Amazonas glowing at night.","tonight":"Manaus"},{"n":9,"wd":"Tuesday","place":"Amazon lodge","date":"4 May","tag":"JUNGLE","hero":"igapo2_0","th":["canoe1_2","jungle_lodge_0"],"hook":"Paddling between the treetops of a flooded forest.","lines":[["Morning","Boat out to the lodge past the <b>Meeting of the Waters</b>, where two rivers of different colours meet."],["Afternoon","Canoe through the flooded forest. In high-water season you're paddling at canopy level. Pink river dolphins, birds, piranha fishing."],["Evening","Swim in the river at sunset."],["Night","Caiman spotting by torchlight from the canoe."]],"best":"Gliding through the flooded forest by canoe.","tonight":"Jungle lodge"},{"n":10,"wd":"Wednesday","place":"Amazon lodge","date":"5 May","tag":"JUNGLE","hero":"boto_br_2","th":["boto_3","piranha_br_1"],"hook":"Sunrise on the river, a night in hammocks.","lines":[["Morning","5:30am sunrise canoe, then an easy guided jungle walk on higher ground."],["Afternoon","Jungle survival skills with the guides, then head out to the jungle camp."],["Evening","Dinner at camp, then a canoe out after dark."],["Night","Hammocks under mosquito nets, with nothing but the jungle around you."]],"best":"A night in the jungle camp.","tonight":"Jungle camp"},{"n":11,"wd":"Thursday","place":"Amazon → Manaus","date":"6 May","tag":"JUNGLE","hero":"anavilhanas_4","th":["lodge_am_0"],"hook":"Meet the people who live on the river.","lines":[["Morning","Breakfast at camp, then a visit to a riverside family's home."],["Afternoon","Last boat ride back, in Manaus by late afternoon."],["Night","Easy night. São Paulo tomorrow."]],"best":"The last look back at the river.","tonight":"Manaus"},{"n":12,"wd":"Friday","place":"Manaus → São Paulo","date":"7 May","tag":"NIGHT OUT","hero":"sp_skyline_night_0","th":["sp_nightlife_1","copan_0"],"hook":"Jungle to megacity in one afternoon.","lines":[["Midday","Fly back to Campinas, then into São Paulo. Check in around Vila Madalena."],["Evening","Dinner and pre-drinks."],["Night","<b>Night out 1</b>: Rua Augusta or Vila Madalena bars, then a club."]],"best":"Friday night in São Paulo after four days in the jungle.","tonight":"Vila Madalena"},{"n":13,"wd":"Saturday","place":"São Paulo","date":"8 May","tag":"NIGHT OUT","hero":"mercadao_1","th":["farol_2","pinacoteca_2","liberdade_2","beco_batman_1"],"hook":"Markets, skyline, then the biggest night of the trip.","lines":[["Morning","<b>Mercado Municipal</b>, the giant food market under stained-glass windows."],["Afternoon","<b>Farol Santander</b> viewing deck, 360° from the 26th floor. <b>Pinacoteca</b> (free on Saturdays). The <b>Liberdade</b> weekend street fair in the Japanese district."],["Evening","<b>Beco do Batman</b>, the graffiti alley, then a nap."],["Night","<b>Night out 2</b>, the biggest of the trip."]],"best":"São Paulo's skyline from the top of Farol Santander.","tonight":"Vila Madalena"},{"n":14,"wd":"Sunday","place":"São Paulo → home","date":"9 May","tag":"TRAVEL","hero":"paulista_4","th":["masp_0","liberdade_0","gru_2"],"hook":"Sunday, when Avenida Paulista belongs to people, not cars.","lines":[["Morning","<b>Avenida Paulista</b> closes to cars on Sundays, 9am–4pm, open to walkers and bikes. <b>MASP</b>, the museum floating on red pillars."],["Afternoon","Liberdade's streets are car-free on Sundays too. Then the airport."],["Night","Flights home."]],"best":"Paulista on a car-free Sunday.","tonight":"Home"}],"p11":[{"n":1,"wd":"Tuesday","place":"Arrive in São Paulo","date":"27 April","tag":"TRAVEL","hero":"latam_gru_3","th":["gru_2","sp_skyline_night_0"],"hook":"Land in South America's biggest city.","lines":[["Evening","Land at Guarulhos and head to Vila Madalena."],["Night","Easy dinner and sleep off the flight."]],"best":"The first drive in over the city lights.","tonight":"Vila Madalena"},{"n":2,"wd":"Wednesday","place":"São Paulo","date":"28 April","tag":"CITY","hero":"masp_0","th":["paulista_4","ibirapuera_3","museu_futebol_0","churrasco_4"],"hook":"Art, football and São Paulo's green heart.","lines":[["Morning","<b>MASP</b>, the museum floating on red pillars, on Avenida Paulista."],["Afternoon","<b>Museu do Futebol</b> under Pacaembu stadium, with a room dedicated to Pelé. Then <b>Ibirapuera</b> park."],["Evening","Churrascaria dinner."],["Night","Early night."]],"best":"The Museu do Futebol.","tonight":"Vila Madalena"},{"n":3,"wd":"Thursday","place":"São Paulo → Itu","date":"29 April","tag":"TRAVEL","hero":"itu_1","th":["itu_4"],"hook":"Road trip to festival town.","lines":[["Afternoon","Drive out to Itu and check in to the festival base."],["Evening","Itu's old centre and church square."],["Night","Early night."]],"best":"The calm before three festival days.","tonight":"Itu"},{"n":null,"wd":"Fri – Sun","place":"Itu · both trips","date":"30 Apr – 2 May","tag":"FESTIVAL","hero":"fest3_1","th":["fest3_0"],"hook":"Three days, six stages, 150+ artists. The reason we're going.","lines":[["Hours","Friday and Saturday 1pm–1am, Sunday 1pm–midnight, at Parque Maeda in Itu."],["Days","Sleep in, big brunch, through the gates early afternoon, and stay to the last set."],["Crew rules","Pick a meeting point in case phones die. Walk away from the gates before booking the Uber home."]],"best":"The Mainstage on closing night.","tonight":"Itu"},{"n":7,"wd":"Monday","place":"Itu → Rio","date":"3 May","tag":"TRAVEL","hero":"pedra_do_sal_4","th":["lapa_arches_3","copacabana_2"],"hook":"Samba where samba was born.","lines":[["Afternoon","Short flight from São Paulo (Congonhas) to Rio's city airport, Santos Dumont."],["Evening","Check in at Ipanema or Copacabana."],["Night","<b>Pedra do Sal</b>: free open-air samba every Monday from about 7pm, in Rio's \"Little Africa\", known as the cradle of samba."]],"best":"Monday night samba at Pedra do Sal.","tonight":"Ipanema / Copacabana"},{"n":8,"wd":"Tuesday","place":"Rio de Janeiro","date":"4 May","tag":"CITY","hero":"christ_0","th":["corcovado_train_0","santa_teresa_3","selaron_0","sugarloaf_cable_2"],"hook":"Christ the Redeemer above the clouds, Sugarloaf at sunset.","lines":[["Morning","First train up Corcovado to <b>Christ the Redeemer</b>, the whole city and bay below."],["Afternoon","The yellow <b>Santa Teresa tram</b>, then down the tiled <b>Selarón steps</b>. Cool off at Ipanema."],["Evening","<b>Sugarloaf</b> cable car, timed for sunset over Guanabara Bay."],["Night","Early night. Tomorrow starts at sunrise."]],"best":"Watching Rio light up from the top of Sugarloaf.","tonight":"Ipanema / Copacabana"},{"n":9,"wd":"Wednesday","place":"Rio de Janeiro","date":"5 May","tag":"BEACH","hero":"dois_irmaos_view_0","th":["arpoador_2","ipanema_1","maracana_4"],"hook":"The view every Rio postcard is taken from.","lines":[["Morning","Guided sunrise hike up <b>Dois Irmãos</b> from Vidigal. Ipanema laid out below."],["Afternoon","Beach time, or a game at <b>Maracanã</b> if there's one on."],["Evening","<b>Arpoador</b> rock for sunset, Rio's classic sunset spot after a beach day."],["Night","Last night in Rio."]],"best":"The summit of Dois Irmãos at sunrise.","tonight":"Ipanema / Copacabana"},{"n":10,"wd":"Thursday","place":"Rio → São Paulo","date":"6 May","tag":"NIGHT OUT","hero":"sp1_0","th":["mercadao_1","farol_2","pinacoteca_2"],"hook":"Back to São Paulo for two big nights.","lines":[["Morning","Fly Santos Dumont → Congonhas."],["Afternoon","<b>Mercado Municipal</b>, the <b>Farol Santander</b> viewing deck, then <b>Pinacoteca</b>."],["Evening","Nap, then pre-drinks."],["Night","<b>Night out 1</b>."]],"best":"Thursday night in Vila Madalena.","tonight":"Vila Madalena"},{"n":11,"wd":"Friday","place":"São Paulo","date":"7 May","tag":"NIGHT OUT","hero":"beco_batman_1","th":["liberdade_0","copan_0","sp_nightlife_1"],"hook":"Street art, Japantown and Friday night.","lines":[["Afternoon","The Liberdade district, the curving Copan building, the Beco do Batman graffiti alley."],["Evening","MASP is free 6–9pm on Fridays."],["Night","<b>Night out 2</b>."]],"best":"Friday night in São Paulo.","tonight":"Vila Madalena"},{"n":12,"wd":"Saturday","place":"São Paulo → home","date":"8 May","tag":"TRAVEL","hero":"liberdade_2","th":["latam_gru_3"],"hook":"One last street fair before the airport.","lines":[["Morning","<b>Liberdade</b> weekend street fair: Japanese food stalls and crafts."],["Afternoon","Airport."],["Night","Flights home."]],"best":"Street food at the Liberdade fair.","tonight":"Home"}],"im":{"cover_rio_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Rio-panorama-Botafogo-Sugarloaf.jpg/1920px-Rio-panorama-Botafogo-Sugarloaf.jpg","museu_futebol_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Pel%C3%A9_10%2C_Museu_do_futebol%2C_Pacaembu_%286070080673%29.jpg/1280px-Pel%C3%A9_10%2C_Museu_do_futebol%2C_Pacaembu_%286070080673%29.jpg","itu_4":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Igreja_Matriz_de_Nossa_Senhora_da_Candel%C3%A1ria_%28Itu%29_-Q10300055_%284%29.jpg/1280px-Igreja_Matriz_de_Nossa_Senhora_da_Candel%C3%A1ria_%28Itu%29_-Q10300055_%284%29.jpg","maracana_4":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Est%C3%A1dio_Maracan%C3%A3_1.jpg/1280px-Est%C3%A1dio_Maracan%C3%A3_1.jpg","fest3_1":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Beach-Please-2022-crowd-stage-lights-night-performance.jpg/1280px-Beach-Please-2022-crowd-stage-lights-night-performance.jpg","fest3_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Beach-Please-2023-artist-stage-crowd-phone-lights-night.jpg/1280px-Beach-Please-2023-artist-stage-crowd-phone-lights-night.jpg","pinacoteca_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Pinacoteca_de_S%C3%A3o_Paulo%2C_Brazil.jpg/1280px-Pinacoteca_de_S%C3%A3o_Paulo%2C_Brazil.jpg","enc_5":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Encontro_das_%C3%81guas.jpg/1280px-Encontro_das_%C3%81guas.jpg","sugarloaf_cable_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Bondinho_do_P%C3%A3o_de_A%C3%A7%C3%BAcar_by_Diego_Baravelli.jpg/1280px-Bondinho_do_P%C3%A3o_de_A%C3%A7%C3%BAcar_by_Diego_Baravelli.jpg","paulista_4":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Vista_da_Avenida_Paulista_-_Sesc_Avenida_Paulista_por_Rodrigo_Tetsuo_Argenton_%281%29.jpg/1280px-Vista_da_Avenida_Paulista_-_Sesc_Avenida_Paulista_por_Rodrigo_Tetsuo_Argenton_%281%29.jpg","sp1_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Teatro_Municipal_de_S%C3%A3o_Paulo_8.jpg/1280px-Teatro_Municipal_de_S%C3%A3o_Paulo_8.jpg","liberdade_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Libertade_Japonese_town_of_S%C3%A3o_Paulo_city.jpg/1280px-Libertade_Japonese_town_of_S%C3%A3o_Paulo_city.jpg","liberdade_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Liberdade_of_Sao_Paulo.jpg/1280px-Liberdade_of_Sao_Paulo.jpg","dois_irmaos_view_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Morro_Dois_Irm%C3%A3os_rio.jpg/1280px-Morro_Dois_Irm%C3%A3os_rio.jpg","christ_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Christ_the_Redeemer_-_Cristo_Redentor.jpg/1280px-Christ_the_Redeemer_-_Cristo_Redentor.jpg","selaron_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Colorful_Selaron_Stairs_3.jpg/1280px-Colorful_Selaron_Stairs_3.jpg","christ_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Redentor_Over_Clouds_1.jpg/1280px-Redentor_Over_Clouds_1.jpg","farol_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Altino_Arantes_and_Others_2.jpg/1280px-Altino_Arantes_and_Others_2.jpg","pedra_do_sal_4":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Pedra_do_Sal_3.jpg/1280px-Pedra_do_Sal_3.jpg","gru_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Departure_lounge_of_Terminal_3_of_Sao_Paulo_Guarulhos_International_Airport_in_2025.jpg/1280px-Departure_lounge_of_Terminal_3_of_Sao_Paulo_Guarulhos_International_Airport_in_2025.jpg","corcovado_train_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/V%C3%ADa_Tren_de_Corcovado_A74246620241123.jpg/1280px-V%C3%ADa_Tren_de_Corcovado_A74246620241123.jpg","viracopos_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Viracopos_International_Airport_Entrance.jpg/1280px-Viracopos_International_Airport_Entrance.jpg","piranha_br_1":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Pesca_de_Piranhas_-Reserva_de_Desenvolvimento_Sustentavel_do_Rio_Negro.jpg/1280px-Pesca_de_Piranhas_-Reserva_de_Desenvolvimento_Sustentavel_do_Rio_Negro.jpg","boto_3":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Inia_geoffrensis_179341177.jpg/1280px-Inia_geoffrensis_179341177.jpg","boto_br_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Parque_Nacional_de_Anavilhanas_Silvio_Batista_Piotto_Junior_%2802%29.jpg/1280px-Parque_Nacional_de_Anavilhanas_Silvio_Batista_Piotto_Junior_%2802%29.jpg","azul_plane_3":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Embraer_195_%28PR-AXN%29_of_Azul_Linhas_A%C3%A9reas_Brasileiras_at_Santos_Dumont_Airport.jpg/1280px-Embraer_195_%28PR-AXN%29_of_Azul_Linhas_A%C3%A9reas_Brasileiras_at_Santos_Dumont_Airport.jpg","lapa_arches_3":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/At_Rio_de_Janeiro_2019_129.jpg/1280px-At_Rio_de_Janeiro_2019_129.jpg","copacabana_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Forte_de_Copacabana_panorama.jpg/1280px-Forte_de_Copacabana_panorama.jpg","sp_skyline_night_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Ponte_estaiada_Octavio_Frias_-_Sao_Paulo.jpg/1280px-Ponte_estaiada_Octavio_Frias_-_Sao_Paulo.jpg","enc_3":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Brazil-00288_-_Meeting_of_Waters_%2848962057606%29.jpg/1280px-Brazil-00288_-_Meeting_of_Waters_%2848962057606%29.jpg","santa_teresa_3":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Bonde_santa_teresa_govrj.jpg/1280px-Bonde_santa_teresa_govrj.jpg","jungle_lodge_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Rio_negro_amazon_ecopark_-_panoramio.jpg/1280px-Rio_negro_amazon_ecopark_-_panoramio.jpg","lodge_am_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Bar_in_amazon_ecopark_jungle_lodge_in_Manaus-Am-Brazil._-_panoramio.jpg/1280px-Bar_in_amazon_ecopark_jungle_lodge_in_Manaus-Am-Brazil._-_panoramio.jpg","arpoador_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Pedra_do_Arpoador_RJ_01.jpg/1280px-Pedra_do_Arpoador_RJ_01.jpg","ipanema_1":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Ipanema_e_Morro_Dois_Irm%C3%A3os_02.JPG/1280px-Ipanema_e_Morro_Dois_Irm%C3%A3os_02.JPG","itu_1":"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Vista_a%C3%A9rea_da_Igreja_Matriz_de_Nossa_Senhora_da_Candel%C3%A1ria.jpg/1280px-Vista_a%C3%A9rea_da_Igreja_Matriz_de_Nossa_Senhora_da_Candel%C3%A1ria.jpg","anavilhanas_4":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Parque_Nacional_de_Anavilhanas_GuilhonAmaz%C3%B4nia_%2815%29.jpg/1280px-Parque_Nacional_de_Anavilhanas_GuilhonAmaz%C3%B4nia_%2815%29.jpg","latam_gru_3":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/A321_LATAM_SBGR.jpg/1280px-A321_LATAM_SBGR.jpg","ibirapuera_3":"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Ibirapuera_Park_in_S%C3%A3o_Paulo_2.jpg/1280px-Ibirapuera_Park_in_S%C3%A3o_Paulo_2.jpg","igapo2_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/REBIO_Abufari_Cesar_Augusto_Chirosa_Horie_%2810%29.jpg/1280px-REBIO_Abufari_Cesar_Augusto_Chirosa_Horie_%2810%29.jpg","mercadao_1":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Vitral_Mercado_Municipal_S%C3%A3o_Paulo.jpg/1280px-Vitral_Mercado_Municipal_S%C3%A3o_Paulo.jpg","canoe1_2":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Canoa_amazonense.JPG/1280px-Canoa_amazonense.JPG","churrasco_4":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Picanha_barbecue.jpg/1280px-Picanha_barbecue.jpg","sp_nightlife_1":"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Rock_bar_at_R._Augusta%2C_S%C3%A3o_Paulo%2C_Brazil.JPG/1280px-Rock_bar_at_R._Augusta%2C_S%C3%A3o_Paulo%2C_Brazil.JPG","beco_batman_1":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Beco_do_Batman_-_55334479612.jpg/1280px-Beco_do_Batman_-_55334479612.jpg","teatro_amazonas_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Noite_no_Teatro_Amazonas_%28cropped%29.jpg/1280px-Noite_no_Teatro_Amazonas_%28cropped%29.jpg","copan_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Copan_Building_%28233116673%29.jpeg/1280px-Copan_Building_%28233116673%29.jpeg","masp_0":"https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/MASP_-_Museu_de_Arte_de_S%C3%A3o_Paulo_%283407308679%29.jpg/1280px-MASP_-_Museu_de_Arte_de_S%C3%A3o_Paulo_%283407308679%29.jpg"}};
+const $=s=>document.querySelector(s);
+$('#ph13').style.backgroundImage=`url(${D.im['christ_2']})`;$('#ph11').style.backgroundImage=`url(${D.im['masp_0']})`;
+$('#amzph').style.backgroundImage=`url(${D.im['igapo2_0']})`;
+// compare
+const rows=[["Length","13 nights","11 nights"],["Starts in","Rio","São Paulo"],["Rio","Before the festival (fresh)","After the festival"],["Festival","Fri 30 Apr – Sun 2 May","Fri 30 Apr – Sun 2 May",1],["Nature","3 days in the Amazon","—"],["São Paulo","2 nights at the end","2 nights at each end"],["Nights out","Friday + Saturday","Thursday + Friday"],["Bonus","Night in jungle hammocks","Pedra do Sal Monday samba"],["Moves","3 domestic flights (two ~3h45)","2 short flights + a drive"]];
+$('#cmp').innerHTML='<tr><th></th><th>13 nights</th><th>11 nights</th></tr>'+rows.map(r=>`<tr class="${r[3]?'f':''}"><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
+// days
+function render(p){
+ $('#dl').innerHTML=D[p].map(d=>{
+  const th=d.th.map(t=>`<img src="${D.im[t]}" alt="" loading="lazy">`).join('');
+  const title=d.n?('Day '+d.n):'Festival';
+  return `<article class="day"><div class="ph" style="background-image:url(${D.im[d.hero]})"><span class="tag">${d.tag}</span></div>
+  <div class="thumbs" style="grid-template-columns:repeat(${d.th.length},1fr)">${th}</div>
+  <div class="bd"><div class="meta"><span>${d.wd.toUpperCase()}</span><span>${d.date.toUpperCase()}</span></div>
+  <h4 class="T">${title}</h4><div class="small" style="font-weight:700;letter-spacing:.12em">${d.place.toUpperCase()}</div>
+  <div class="hook">${d.hook}</div>${d.lines.map(l=>`<p class="ln"><b>${l[0]}:</b> ${l[1]}</p>`).join('')}
+  <div class="best"><span>BEST MOMENT</span>${d.best}</div><div class="tonight"><b>Tonight:</b> ${d.tonight}</div></div></article>`}).join('');
+ document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.p===p));
+}
+render('p13');
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>render(t.dataset.p));
+document.querySelectorAll('[data-show]').forEach(b=>b.onclick=()=>{render(b.dataset.show);$('#days').scrollIntoView()});
+// quiz
+const Q=[["After three festival days, you'd rather…",[["Canoe through a flooded jungle",13],["Recover on a Rio beach",11]]],
+["The Amazon is…",[["A once-in-a-lifetime must",13],["Cool, but maybe another time",11]]],
+["Best nights out are…",[["Friday + Saturday",13],["Thursday + Friday",11],["Don't mind",0]]],
+["Trip length?",[["Longer, see it all",13],["Shorter suits me",11]]]];
+const ans={};let QUIZ=null;const ST={pick:null};
+$('#qz').innerHTML=Q.map((q,i)=>`<div class="q"><h3>${i+1}. ${q[0]}</h3><div class="opts">${q[1].map((o,j)=>`<button class="opt" data-q="${i}" data-v="${o[1]}">${o[0]}</button>`).join('')}</div></div>`).join('');
+document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll(`.opt[data-q="${b.dataset.q}"]`).forEach(x=>x.classList.remove('on'));b.classList.add('on');ans[b.dataset.q]=+b.dataset.v;changed();
+ if(Object.keys(ans).length===Q.length){const v=Object.values(ans);const s13=v.filter(x=>x===13).length,s11=v.filter(x=>x===11).length;
+  const r=$('#res');document.querySelectorAll('.plan').forEach(c=>c.classList.remove('glow'));
+  if(s13===s11){QUIZ='either';r.innerHTML='<b>You could go either way.</b><br>Two answers each. Have a look at both trips and pick the one that sounds more like you. <a href="#plans">See both ↓</a>';$('#c13').classList.add('glow');$('#c11').classList.add('glow');}
+  else{const p=s13>s11?13:11;QUIZ=String(p);
+  r.innerHTML=p===13?'<b>You\'re a Full Brazil person: 13 nights.</b><br>Rio, Tomorrowland, the Amazon, then São Paulo on Friday and Saturday night. <a href="#plans">See your card ↓</a>':'<b>You\'re a City & Coast person: 11 nights.</b><br>São Paulo, Tomorrowland, Rio and Pedra do Sal, then two São Paulo nights out. <a href="#plans">See your card ↓</a>';
+  $('#c'+p).classList.add('glow');}
+  r.classList.add('show');
+  if(ST.pick)buildMsg();}
+});
+// pick
+let DB=null,U=null,MYID=null,CANW=null;
+async function initCaps(){
+ if(!window.claude||typeof window.claude.use!=='function')return;
+ try{[DB,U]=await Promise.all([window.claude.use('db'),window.claude.use('user')]);}catch(e){return}
+ if(!U)return;
+ try{MYID=await U.id();}catch(e){}
+ try{CANW=await U.can('data.write');}catch(e){}
+ let own=false;try{own=await U.isOwner();}catch(e){}
+ if(own&&DB)showResults();
+}
+function showResults(){
+ $('#results').hidden=false;
+ DB.collection('votes').onSnapshot(snap=>{
+  const t=$('#rtab');while(t.rows.length>1)t.deleteRow(1);
+  const docs=snap.docs.map(d=>d.data()||{}).sort((a,b)=>(b.at||0)-(a.at||0));
+  $('#rnone').style.display=docs.length?'none':'block';
+  const lab={ '13':'13 nights','11':'11 nights','either':'Either' };
+  docs.forEach(v=>{const r=t.insertRow();[String(v.name||'?').slice(0,40),lab[v.pick]||'?',({'13':'13 nights','11':'11 nights',either:'Either way'})[v.quiz]||'—',v.at?new Date(v.at).toLocaleString():''].forEach(x=>{const c=r.insertCell();c.textContent=x;});});
+ },()=>{$('#rnone').textContent='Results unavailable right now.';$('#rnone').style.display='block';});
+}
+async function savePick(){
+ if(!DB||!MYID||CANW===false||!ST.pick)return false;
+ const name=(($('#nm').value||'').trim()||'Anonymous').slice(0,40);
+ try{await DB.doc('votes/'+MYID).set({name:name,pick:ST.pick,quiz:QUIZ,at:Date.now()});return true;}catch(e){return false;}
+}
+initCaps();
+const FORM='https://docs.google.com/forms/d/e/1FAIpQLScSbdrhGF7DD2upGO_J-8xO7-VRKQNTKQNodCUBJSTphhQzpA/formResponse';
+const FE={name:'entry.343006480',pick:'entry.1828637529',quiz:'entry.776910005'};
+const FV={pick:{'13':'13 nights','11':'11 nights',either:'Either works'},quiz:{'13':'13 nights','11':'11 nights',either:'Either way'}};
+function buildMsg(){
+ const n=($('#nm').value||'').trim();const k=ST.pick;
+ const t=k==='either'?(n?n+': either':'Either')+' trip works for me 🇧🇷':(n?n+"'s pick: ":'My pick: ')+(k==='13'?'13 nights, The Full Brazil (Rio, Tomorrowland, Amazon, São Paulo) 🇧🇷':'11 nights, City & Coast (São Paulo, Tomorrowland, Rio) 🇧🇷');
+ $('#mtxt').textContent=t;$('#wa').href='https://wa.me/?text='+encodeURIComponent(t);$('#sms').href='sms:?&body='+encodeURIComponent(t);
+}
+let SENT=false,BUSY=false;
+function changed(){if(SENT)$('#subst').textContent='You changed something. Hit Update my pick to send the new version.';}
+async function sendForm(){
+ const p=new URLSearchParams();p.append(FE.name,(($('#nm').value||'').trim()).slice(0,40));p.append(FE.pick,FV.pick[ST.pick]);
+ if(QUIZ)p.append(FE.quiz,FV.quiz[QUIZ]);
+ try{await fetch(FORM,{method:'POST',mode:'no-cors',body:p});return true;}catch(e){return false;}
+}
+$('#sub').onclick=async()=>{
+ if(BUSY)return;const st=$('#subst');const name=($('#nm').value||'').trim();
+ if(!name){st.textContent='Add your name first (top of this box).';$('#nm').scrollIntoView({block:'center'});$('#nm').focus();return;}
+ if(!ST.pick){st.textContent='Pick a trip first: tap 13, 11 or Either works above.';const pk=$('#picks');pk.scrollIntoView({block:'center'});pk.classList.remove('nudge');void pk.offsetWidth;pk.classList.add('nudge');return;}
+ BUSY=true;$('#sub').disabled=true;st.textContent='Sending…';
+ const [f,d]=await Promise.all([sendForm(),savePick()]);
+ BUSY=false;$('#sub').disabled=false;
+ if(f||d){SENT=true;$('#sub').textContent='Update my pick';st.textContent='✓ Sent. Thanks '+name.split(' ')[0]+'! Changed your mind? Edit your answers and submit again.';}
+ else st.textContent="Couldn't send that. Check your connection and try again, or send the message below to the group chat.";
+ buildMsg();$('#msg').classList.add('show');
+};
+document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{ST.pick=b.dataset.pick;document.querySelectorAll('[data-pick]').forEach(x=>{x.classList.toggle('ghost',x!==b);x.setAttribute('aria-pressed',x===b)});if(SENT)changed();else $('#subst').textContent='';buildMsg();$('#msg').classList.add('show');$('#cpok').textContent='';});
+$('#nm').addEventListener('input',()=>{if(ST.pick)buildMsg();changed();});
+$('#cp').onclick=async()=>{const t=$('#mtxt').textContent;try{await navigator.clipboard.writeText(t);$('#cpok').textContent='Copied. Paste it into the group chat.'}catch(e){$('#cpok').textContent='Copy is blocked here: press and hold the message above to copy it.'}};
+</script></body></html>
