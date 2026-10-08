@@ -87,8 +87,6 @@ h2{font-size:clamp(34px,8vw,54px);color:var(--coral);line-height:1.05;margin-bot
 .pick{background:var(--card);border:2px solid var(--coral);border-radius:28px;padding:22px}
 .pick input{width:100%;font:16px 'OSO',sans-serif;padding:12px 14px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);margin:10px 0 14px}
 .picks{display:flex;gap:10px;flex-wrap:wrap}
-.msg{display:none;margin-top:16px;background:var(--bg);border-radius:18px;padding:16px}
-.msg.show{display:block}.msg p{font-size:17px;margin-bottom:12px}
 .small{font-size:13px;color:var(--muted)}
 main{padding-bottom:40px}
 .pick label{font-weight:700;font-size:14px}
@@ -127,11 +125,10 @@ main{padding-bottom:40px}
 <p class="ln"><b>High water:</b> the river floods into the forest, so instead of long hikes you canoe <i>through</i> the trees, at canopy level.</p>
 <p class="ln"><b>Wildlife:</b> flood season is the best time to see monkeys and sloths at eye level from the canoe. Pink river dolphins live here.</p>
 <p class="ln"><b>Rain + bugs:</b> it's the wet season, so bring a rain jacket, a dry bag and repellent. Short jungle walks still run on higher ground.</p></div></div></section>
-<section id="pick"><h2 class="T">Make your pick</h2><p class="lead">Add your name, tap your pick, then hit Submit. You can send it to the group chat too.</p>
+<section id="pick"><h2 class="T">Make your pick</h2><p class="lead">Add your name, tap your pick, then hit Submit.</p>
 <div class="pick"><label for="nm">Your name</label><input id="nm" placeholder="Your name" autocomplete="given-name" maxlength="40">
 <h3 class="pq">Which trip are you in for?</h3><div class="picks" id="picks"><button class="btn ghost" data-pick="13" aria-pressed="false">I'm in for 13 nights</button><button class="btn ghost" data-pick="11" aria-pressed="false">I'm in for 11 nights</button><button class="btn ghost" data-pick="either" aria-pressed="false">Either works</button></div>
-<div class="subw"><button class="btn big" id="sub">Submit my pick</button><p class="small" id="subst" role="status" aria-live="polite"></p></div>
-<div class="msg" id="msg"><p id="mtxt"></p><div class="picks"><button class="btn" id="cp">Copy message</button><a class="btn ghost" id="wa" target="_blank" rel="noopener" style="color:var(--coral)">WhatsApp</a><a class="btn ghost" id="sms" style="color:var(--coral)">Text</a></div><p class="small" id="cpok" style="margin-top:8px" role="status"></p></div></div></section>
+<div class="subw"><button class="btn big" id="sub">Submit my pick</button><p class="small" id="subst" role="status" aria-live="polite"></p></div></div></section>
 <section id="results" hidden><h2 class="T">Results</h2><p class="lead">Only you (the owner) can see this board. Picks saved from this page show up here live.</p>
 <div class="cmpw"><table class="cmp" id="rtab"><tr><th>Name</th><th>Pick</th><th>Quiz said</th><th>When</th></tr></table></div><p class="small" id="rnone" style="margin-top:10px">No picks saved yet.</p></section>
 </main>
@@ -170,7 +167,8 @@ document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
  document.querySelectorAll(`.opt[data-q="${b.dataset.q}"]`).forEach(x=>x.classList.remove('on'));b.classList.add('on');ans[b.dataset.q]=+b.dataset.v;changed();
  if(Object.keys(ans).length===Q.length){const v=Object.values(ans);const s13=v.filter(x=>x===13).length,s11=v.filter(x=>x===11).length;
   const r=$('#res');document.querySelectorAll('.plan').forEach(c=>c.classList.remove('glow'));
-  if(s13===s11){QUIZ='either';r.innerHTML='<b>You could go either way.</b><br>Two answers each. Have a look at both trips and pick the one that sounds more like you. <a href="#plans">See both ↓</a>';$('#c13').classList.add('glow');$('#c11').classList.add('glow');}
+  if(ans['1']===13){QUIZ='13';r.innerHTML='<b>You\'re a Full Brazil person: 13 nights.</b><br>The Amazon is a must for you, and only the 13-night trip has it. Rio, Tomorrowland, the Amazon, then São Paulo on Friday and Saturday night. <a href="#plans">See your card ↓</a>';$('#c13').classList.add('glow');}
+  else if(s13===s11){QUIZ='either';r.innerHTML='<b>You could go either way.</b><br>Two answers each. Have a look at both trips and pick the one that sounds more like you. <a href="#plans">See both ↓</a>';$('#c13').classList.add('glow');$('#c11').classList.add('glow');}
   else{const p=s13>s11?13:11;QUIZ=String(p);
   r.innerHTML=p===13?'<b>You\'re a Full Brazil person: 13 nights.</b><br>Rio, Tomorrowland, the Amazon, then São Paulo on Friday and Saturday night. <a href="#plans">See your card ↓</a>':'<b>You\'re a City & Coast person: 11 nights.</b><br>São Paulo, Tomorrowland, Rio and Pedra do Sal, then two São Paulo nights out. <a href="#plans">See your card ↓</a>';
   $('#c'+p).classList.add('glow');}
@@ -207,11 +205,7 @@ initCaps();
 const FORM='https://docs.google.com/forms/d/e/1FAIpQLScSbdrhGF7DD2upGO_J-8xO7-VRKQNTKQNodCUBJSTphhQzpA/formResponse';
 const FE={name:'entry.343006480',pick:'entry.1828637529',quiz:'entry.776910005'};
 const FV={pick:{'13':'13 nights','11':'11 nights',either:'Either works'},quiz:{'13':'13 nights','11':'11 nights',either:'Either way'}};
-function buildMsg(){
- const n=($('#nm').value||'').trim();const k=ST.pick;
- const t=k==='either'?(n?n+': either':'Either')+' trip works for me 🇧🇷':(n?n+"'s pick: ":'My pick: ')+(k==='13'?'13 nights, The Full Brazil (Rio, Tomorrowland, Amazon, São Paulo) 🇧🇷':'11 nights, City & Coast (São Paulo, Tomorrowland, Rio) 🇧🇷');
- $('#mtxt').textContent=t;$('#wa').href='https://wa.me/?text='+encodeURIComponent(t);$('#sms').href='sms:?&body='+encodeURIComponent(t);
-}
+function buildMsg(){}
 let SENT=false,BUSY=false;
 function changed(){if(SENT)$('#subst').textContent='You changed something. Hit Update my pick to send the new version.';}
 async function sendForm(){
@@ -227,10 +221,9 @@ $('#sub').onclick=async()=>{
  const [f,d]=await Promise.all([sendForm(),savePick()]);
  BUSY=false;$('#sub').disabled=false;
  if(f||d){SENT=true;$('#sub').textContent='Update my pick';st.textContent='✓ Sent. Thanks '+name.split(' ')[0]+'! Changed your mind? Edit your answers and submit again.';}
- else st.textContent="Couldn't send that. Check your connection and try again, or send the message below to the group chat.";
- buildMsg();$('#msg').classList.add('show');
+ else st.textContent="Couldn't send that. Check your connection and try again.";
+ 
 };
-document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{ST.pick=b.dataset.pick;document.querySelectorAll('[data-pick]').forEach(x=>{x.classList.toggle('ghost',x!==b);x.setAttribute('aria-pressed',x===b)});if(SENT)changed();else $('#subst').textContent='';buildMsg();$('#msg').classList.add('show');$('#cpok').textContent='';});
+document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{ST.pick=b.dataset.pick;document.querySelectorAll('[data-pick]').forEach(x=>{x.classList.toggle('ghost',x!==b);x.setAttribute('aria-pressed',x===b)});if(SENT)changed();else $('#subst').textContent='';});
 $('#nm').addEventListener('input',()=>{if(ST.pick)buildMsg();changed();});
-$('#cp').onclick=async()=>{const t=$('#mtxt').textContent;try{await navigator.clipboard.writeText(t);$('#cpok').textContent='Copied. Paste it into the group chat.'}catch(e){$('#cpok').textContent='Copy is blocked here: press and hold the message above to copy it.'}};
 </script></body></html>
